@@ -1,10 +1,10 @@
-(define-keyset 'admin-anedak (read-keyset "admin-anedak"))
+(define-keyset 'admin-kaboom (read-keyset "admin-kaboom"))
 
 (namespace "free")
-(module anedak GOVERNANCE
+(module kaboom GOVERNANCE
 
-  @doc " 'Anedak' is the first token implemented on the Kadena mainnet \
-       \ Adapted from Kadena's coin.pact contract and finprint. "
+  @doc " 'Kaboom' is the first meme token implemented on the Kadena mainnet \
+       \ Adapted from Kadena's coin.pact contract, Thanos anedak repo, and finprint. "
 
   @model
     [ (defproperty conserves-mass (amount:decimal)
@@ -38,7 +38,7 @@
 
     @doc " Give the admin full access to call and upgrade the module. "
 
-    (enforce-keyset 'admin-anedak)
+    (enforce-keyset 'admin-kaboom)
   )
 
   (defcap ACCOUNT_GUARD
