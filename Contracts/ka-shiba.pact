@@ -1,10 +1,10 @@
-(define-keyset 'admin-anedak (read-keyset "admin-anedak"))
+(define-keyset 'ka-shiba (read-keyset "ka-shiba"))
 
 (namespace "free")
-(module anedak GOVERNANCE
+(module ka-shiba GOVERNANCE
 
-  @doc " 'Anedak' is the first token implemented on the Kadena mainnet \
-       \ Adapted from Kadena's coin.pact contract and finprint. "
+  @doc " 'Ka-Shiba' is the first token implemented on the Kadena mainnet \
+       \ Adapted from Anedaks's coin.pact contract and finprint. "
 
   @model
     [ (defproperty conserves-mass (amount:decimal)
@@ -38,7 +38,7 @@
 
     @doc " Give the admin full access to call and upgrade the module. "
 
-    (enforce-keyset 'admin-anedak)
+    (enforce-keyset 'ka-shiba)
   )
 
   (defcap ACCOUNT_GUARD
@@ -97,7 +97,7 @@
   (defconst ROOT_ACCOUNT_ID:string 'ROOT
     " ID for the account which initially owns all the tokens. ")
 
-  (defconst INITIAL_SUPPLY:decimal 50000.0
+  (defconst INITIAL_SUPPLY:decimal 50000000.0
     " Initial supply of 1 million tokens. (50k x20 chains)")
 
   (defconst DECIMALS 12
@@ -400,3 +400,5 @@
 )
 
 (create-table token-table)
+
+
