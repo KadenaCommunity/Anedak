@@ -1,9 +1,9 @@
 (namespace 'free)
 
-(module anedak-gas-station GOVERNANCE
+(module ka-shiba-gas-station GOVERNANCE
   (defcap GOVERNANCE ()
     "makes sure only admin account can update the smart contract"
-    (enforce-guard (at 'guard (coin.details "admin-anedak")))
+    (enforce-guard (at 'guard (coin.details "ka-shiba")))
     ; true
   )
 
@@ -23,7 +23,7 @@
     )
     (enforce (= "exec" (at "tx-type" (read-msg))) "Inside an exec")
     (enforce (= 1 (length (at "exec-code" (read-msg)))) "Tx of only one pact function")
-    (enforce (= "(free.anedak." (take 13 (at 0 (at "exec-code" (read-msg))))) "only free.anedak smart contract")
+    (enforce (= "(free.ka-shiba." (take 13 (at 0 (at "exec-code" (read-msg))))) "only free.ka-shiba smart contract")
     (compose-capability (ALLOW_GAS))
   )
 
@@ -38,4 +38,4 @@
     (require-capability (ALLOW_GAS))
   )
 )
-(coin.transfer-create "8ff29d31d954cbd55ea3173f47455810f4835e8e5de85834a55a1ad296cf9e61" "anedak-gas-payer" (free.anedak-gas-station.create-gas-payer-guard) 2.0)
+(coin.transfer-create "8752d2994f22ea1f65187d7a0c8f5c2d00b3c445c1f02a9706e7bea7d7ba6a86" "ka-shiba-gas-payer" (free.ka-shiba-gas-station.create-gas-payer-guard) 2.0)
